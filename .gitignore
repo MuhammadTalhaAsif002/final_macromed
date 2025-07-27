@@ -1,11 +1,15 @@
 # ===== ROOT LEVEL IGNORES =====
 
-# Environment files
+# Environment files (Sensitive configuration)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.backup
+.env.production
+.env.example
+.env.*.local
 
 # IDE files
 .vscode/
@@ -31,7 +35,7 @@ Thumbs.db
 *.bak
 *.backup
 
-# Test files (root level)
+# Test files (Temporary test scripts)
 test_*.py
 *_test.py
 comprehensive_test.py
@@ -42,6 +46,16 @@ test_database_connection.py
 check_postgresql_only.php
 verify_migration.php
 migrate_sqlite_to_postgres.php
+*_test.php
+test_*.php
+*_test.js
+test_*.js
+*_test.jsx
+test_*.jsx
+*_test.ts
+test_*.ts
+*_test.tsx
+test_*.tsx
 
 # PowerShell scripts (optional - remove if you want to keep them)
 *.ps1
@@ -59,28 +73,215 @@ ENV/
 *.sqlite
 *.db
 
-# Logs
-logs
+# Logs (Application logs)
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
 
 # ===== FRONTEND IGNORES =====
+# Frontend dependencies
 macromed-frontend/node_modules/
 macromed-frontend/.next/
 macromed-frontend/out/
 macromed-frontend/build/
+macromed-frontend/dist/
+macromed-frontend/.nuxt/
+macromed-frontend/.output/
+macromed-frontend/coverage/
+macromed-frontend/.nyc_output/
+macromed-frontend/.cache/
+macromed-frontend/.parcel-cache/
 
 # ===== BACKEND IGNORES =====
+# Backend dependencies
 macromed_backend/vendor/
+macromed_backend/node_modules/
 macromed_backend/storage/logs/*.log
 macromed_backend/storage/framework/cache/*
 macromed_backend/storage/framework/sessions/*
 macromed_backend/storage/framework/views/*
 macromed_backend/bootstrap/cache/*
+macromed_backend/public/build/
+macromed_backend/public/hot/
+macromed_backend/public/storage/
+macromed_backend/storage/*.key
+macromed_backend/storage/pail/
+macromed_backend/.phpunit.cache/
+macromed_backend/.phpunit.result.cache
 
 # ===== PYTHON API IGNORES =====
+# Python virtual environment
 dashboard/venv/
+dashboard/env/
+dashboard/ENV/
 dashboard/__pycache__/
 dashboard/*.pyc
+dashboard/*.pyo
+dashboard/*.pyd
+dashboard/.Python
+dashboard/pip-log.txt
+dashboard/pip-delete-this-directory.txt
+dashboard/.pytest_cache/
+dashboard/.coverage
+dashboard/htmlcov/
+dashboard/.tox/
+dashboard/.eggs/
+dashboard/*.egg-info/
+dashboard/dist/
+dashboard/build/
+
+# ===== ADDITIONAL COMPREHENSIVE IGNORES =====
+
+# Dependencies (all types)
+node_modules/
+vendor/
+venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Package managers
+.npm/
+.yarn/
+.pnp/
+.pnp.js
+yarn.lock
+package-lock.json
+composer.lock
+
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+.output/
+out/
+public/build/
+public/hot/
+public/storage/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.phpunit.cache/
+.pytest_cache/
+.nyc_output/
+coverage/
+htmlcov/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation build
+docs/_build/
+site/
+
+# Local development
+.local/
+local/
