@@ -1,0 +1,105 @@
+{
+  "info": {
+    "_postman_id": "b1e2c3d4-5678-1234-9abc-def012345678",
+    "name": "Macromed API Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth & User",
+      "item": [
+        { "name": "Login", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password\"\n}" }, "url": { "raw": "{{base_url}}/api/login", "host": [ "{{base_url}}" ], "path": [ "api", "login" ] } } },
+        { "name": "Signup", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}" }, "url": { "raw": "{{base_url}}/api/signup", "host": [ "{{base_url}}" ], "path": [ "api", "signup" ] } } },
+        { "name": "Logout", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/logout", "host": [ "{{base_url}}" ], "path": [ "api", "logout" ] } } },
+        { "name": "Get User", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/user", "host": [ "{{base_url}}" ], "path": [ "api", "user" ] } } }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        { "name": "Get All Products", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/products", "host": [ "{{base_url}}" ], "path": [ "api", "products" ] } } },
+        { "name": "Create Product", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_name\": \"Surgical Scissors\",\n  \"price\": 150.00,\n  \"category\": \"Surgical Instruments\"\n}" }, "url": { "raw": "{{base_url}}/api/products", "host": [ "{{base_url}}" ], "path": [ "api", "products" ] } } },
+        { "name": "Get Product by ID", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/products/1", "host": [ "{{base_url}}" ], "path": [ "api", "products", "1" ] } } },
+        { "name": "Update Product", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_name\": \"Updated Name\",\n  \"price\": 200.00,\n  \"category\": \"Updated Category\"\n}" }, "url": { "raw": "{{base_url}}/api/products/1", "host": [ "{{base_url}}" ], "path": [ "api", "products", "1" ] } } },
+        { "name": "Delete Product", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/products/1", "host": [ "{{base_url}}" ], "path": [ "api", "products", "1" ] } } },
+        { "name": "Products by Category", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"category\": \"Surgical Instruments\"\n}" }, "url": { "raw": "{{base_url}}/api/products/by-category", "host": [ "{{base_url}}" ], "path": [ "api", "products", "by-category" ] } } },
+        { "name": "Search Products", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/products/search?query=scissors", "host": [ "{{base_url}}" ], "path": [ "api", "products", "search" ], "query": [ { "key": "query", "value": "scissors" } ] } } }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        { "name": "Get All Orders", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/orders", "host": [ "{{base_url}}" ], "path": [ "api", "orders" ] } } },
+        { "name": "Make Order", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2,\n  \"shipping_address\": \"123 Main St, City, State 12345\",\n  \"billing_address\": \"123 Main St, City, State 12345\",\n  \"contact_phone\": \"+1234567890\",\n  \"contact_email\": \"customer@example.com\",\n  \"special_instructions\": \"Please deliver during business hours\",\n  \"payment_method\": \"credit_card\"\n}" }, "url": { "raw": "{{base_url}}/api/orders/make-order", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "make-order" ] } } },
+        { "name": "Get Order by ID", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/orders/1", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "1" ] } } },
+        { "name": "Update Order", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"quantity\": 3,\n  \"shipping_address\": \"New Address\"\n}" }, "url": { "raw": "{{base_url}}/api/orders/1", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "1" ] } } },
+        { "name": "Cancel Order", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/orders/1/cancel", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "1", "cancel" ] } } },
+        { "name": "Delete Order", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/orders/1", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "1" ] } } }
+      ]
+    },
+    {
+      "name": "Interactions",
+      "item": [
+        { "name": "Track View", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1\n}" }, "url": { "raw": "{{base_url}}/api/track/view", "host": [ "{{base_url}}" ], "path": [ "api", "track", "view" ] } } },
+        { "name": "Track Search", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"query\": \"scissors\"\n}" }, "url": { "raw": "{{base_url}}/api/track/search", "host": [ "{{base_url}}" ], "path": [ "api", "track", "search" ] } } },
+        { "name": "Track Wishlist", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1\n}" }, "url": { "raw": "{{base_url}}/api/track/wishlist", "host": [ "{{base_url}}" ], "path": [ "api", "track", "wishlist" ] } } },
+        { "name": "Track Cart", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2\n}" }, "url": { "raw": "{{base_url}}/api/track/cart", "host": [ "{{base_url}}" ], "path": [ "api", "track", "cart" ] } } },
+        { "name": "Track Purchase", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2\n}" }, "url": { "raw": "{{base_url}}/api/track/purchase", "host": [ "{{base_url}}" ], "path": [ "api", "track", "purchase" ] } } },
+        { "name": "Track Interaction", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"type\": \"view\",\n  \"product_id\": 1\n}" }, "url": { "raw": "{{base_url}}/api/track/interaction", "host": [ "{{base_url}}" ], "path": [ "api", "track", "interaction" ] } } },
+        { "name": "Track Lifecycle", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"stage\": \"added_to_cart\",\n  \"product_id\": 1\n}" }, "url": { "raw": "{{base_url}}/api/track/lifecycle", "host": [ "{{base_url}}" ], "path": [ "api", "track", "lifecycle" ] } } }
+      ]
+    },
+    {
+      "name": "Insights & Analytics",
+      "item": [
+        { "name": "Analytics", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/analytics", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "analytics" ] } } },
+        { "name": "Recent Interactions", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/recent", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "recent" ] } } },
+        { "name": "Personalized Recommendations", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/recommendations", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "recommendations" ] } } },
+        { "name": "You Also Viewed", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/you-also-viewed", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "you-also-viewed" ] } } },
+        { "name": "Frequently Viewed", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/frequently-viewed", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "frequently-viewed" ] } } },
+        { "name": "Trending", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/trending", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "trending" ] } } },
+        { "name": "Purchase History", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/purchase-history", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "purchase-history" ] } } },
+        { "name": "Cart Analysis", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/cart-analysis", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "cart-analysis" ] } } },
+        { "name": "Wishlist Items", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/wishlist", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "wishlist" ] } } },
+        { "name": "Abandoned Cart", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/abandoned-cart", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "abandoned-cart" ] } } },
+        { "name": "Search History", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/search-history", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "search-history" ] } } },
+        { "name": "Interests", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/interests", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "interests" ] } } },
+        { "name": "Engagement Score", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/engagement-score", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "engagement-score" ] } } },
+        { "name": "Top Selling Products", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/top-selling-products", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "top-selling-products" ] } } },
+        { "name": "New Arrivals", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/new-arrivals", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "new-arrivals" ] } } },
+        { "name": "Top Selling Categories", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/insights/top-selling-categories", "host": [ "{{base_url}}" ], "path": [ "api", "insights", "top-selling-categories" ] } } }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        { "name": "Get All Reviews", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/reviews", "host": [ "{{base_url}}" ], "path": [ "api", "reviews" ] } } },
+        { "name": "Create Review", "request": { "method": "POST", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"product_id\": 1,\n  \"rating\": 5,\n  \"comment\": \"Great product!\"\n}" }, "url": { "raw": "{{base_url}}/api/reviews", "host": [ "{{base_url}}" ], "path": [ "api", "reviews" ] } } },
+        { "name": "Get Review by ID", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/reviews/1", "host": [ "{{base_url}}" ], "path": [ "api", "reviews", "1" ] } } },
+        { "name": "Update Review", "request": { "method": "PUT", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"rating\": 4,\n  \"comment\": \"Updated review comment.\"\n}" }, "url": { "raw": "{{base_url}}/api/reviews/1", "host": [ "{{base_url}}" ], "path": [ "api", "reviews", "1" ] } } },
+        { "name": "Delete Review", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/reviews/1", "host": [ "{{base_url}}" ], "path": [ "api", "reviews", "1" ] } } }
+      ]
+    },
+    {
+      "name": "Recommendations (Python-Proxied)",
+      "item": [
+        { "name": "Content-Based Recommendations", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/recommendations/content-based?product_id=1", "host": [ "{{base_url}}" ], "path": [ "api", "recommendations", "content-based" ], "query": [ { "key": "product_id", "value": "1" } ] } } },
+        { "name": "Price-Based Recommendations", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/recommendations/price-based?product_id=1", "host": [ "{{base_url}}" ], "path": [ "api", "recommendations", "price-based" ], "query": [ { "key": "product_id", "value": "1" } ] } } },
+        { "name": "Hybrid Recommendations", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/recommendations/hybrid?product_id=1", "host": [ "{{base_url}}" ], "path": [ "api", "recommendations", "hybrid" ], "query": [ { "key": "product_id", "value": "1" } ] } } },
+        { "name": "Clear Recommendation Cache", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{base_url}}/api/recommendations/cache", "host": [ "{{base_url}}" ], "path": [ "api", "recommendations", "cache" ] } } },
+        { "name": "Python API Health", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/python-api/health", "host": [ "{{base_url}}" ], "path": [ "api", "python-api", "health" ] } } }
+      ]
+    },
+    {
+      "name": "Direct Python APIs",
+      "item": [
+        { "name": "Get Weights", "request": { "method": "GET", "url": { "raw": "{{python_url}}/api/weights/dynamic_history", "host": [ "{{python_url}}" ], "path": [ "api", "weights", "dynamic_history" ] } } }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" },
+    { "key": "token", "value": "" },
+    { "key": "python_url", "value": "http://localhost:5000" }
+  ]
+} 

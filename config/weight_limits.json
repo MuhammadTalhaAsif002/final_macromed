@@ -1,0 +1,29 @@
+{
+  "dynamic_history": {
+    "min": 0.0,
+    "max": 1.0,
+    "description": "Weights for brand, category, subcategory, material"
+  },
+  "product_to_product": {
+    "min": 0.0,
+    "max": 10.0,
+    "description": "Similarity weights for product comparison"
+  },
+  "static_history": {
+    "min": 0.0,
+    "max": 10.0,
+    "description": "Weights for static historical analysis"
+  },
+  "interaction": {
+    "min": 0.0,
+    "max": 10.0,
+    "description": "Importance of user interaction types"
+  },
+  "config": {
+    "alpha": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "Weight retention factor (0-1)"
+    }
+  }
+} 
