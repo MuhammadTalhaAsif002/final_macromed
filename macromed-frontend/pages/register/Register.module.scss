@@ -1,0 +1,44 @@
+@import "styles/app";
+
+.backgroundImage {
+  background-image: url('../../public/images/e-commerce/register/bg.png');
+  background-size: cover;
+}
+
+.button {
+  padding: 14px 70px!important;
+  @media (max-width: 1280px) {
+    padding: 14px 37px!important;
+  }
+}
+
+.formGroup {
+  position: relative;
+}
+
+.viewPassword {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 36px;
+}
+
+.footer {
+  margin-top: 180px;
+
+  & > a {
+    margin-right: 15px;
+  }
+}
+
+.practiceTypeSelect {
+  min-width: 250px;
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  box-sizing: border-box;
+}
